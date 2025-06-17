@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallguard Pro - Advanced Multi-Modal Fall Detection System</title>    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>Fallguard Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#demo">Live Demo</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Revolutionary Multi-Modal<br><span class="gradient-text">Fall Detection System</span></h1>
+                <p>Protecting lives through advanced AI-powered technology combining computer vision, motion sensors, and vital signs monitoring for comprehensive fall detection and prevention.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('demo')">See Live Demo</button>
+                    <button class="btn-secondary" onclick="scrollToSection('technology')">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-animation">
+                    <div class="sensor-grid">
+                        <div class="sensor camera-sensor">
+                            <i class="fas fa-video"></i>
+                            <span>Camera AI</span>
+                        </div>
+                        <div class="sensor motion-sensor">
+                            <i class="fas fa-running"></i>
+                            <span>Motion</span>
+                        </div>
+                        <div class="sensor health-sensor">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Vitals</span>
+                        </div>
+                    </div>
+                    <div class="central-hub">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Processing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Overview -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <h2>Multi-Modal Detection Technology</h2>
+            <p class="section-subtitle">Our advanced system combines three critical detection methods for unparalleled accuracy and reliability</p>
+            
+            <div class="tech-grid">
+                <div class="tech-card camera-tech">
+                    <div class="tech-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Computer Vision AI</h3>
+                    <p>Advanced neural networks analyze body posture, movement patterns, and spatial positioning in real-time to detect falls with 98.5% accuracy.</p>
+                    <ul class="tech-features">
+                        <li>Real-time pose estimation</li>
+                        <li>Motion trajectory analysis</li>
+                        <li>Privacy-preserving edge processing</li>
+                        <li>Multi-angle coverage support</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card motion-tech">
+                    <div class="tech-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Inertial Motion Sensors</h3>
+                    <p>Wearable accelerometers and gyroscopes detect sudden changes in acceleration, orientation, and impact patterns characteristic of falls.</p>
+                    <ul class="tech-features">
+                        <li>3-axis accelerometer data</li>
+                        <li>Gyroscope orientation tracking</li>
+                        <li>Impact force measurement</li>
+                        <li>Activity pattern recognition</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card health-tech">
+                    <div class="tech-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Vital Signs Monitoring</h3>
+                    <p>Continuous monitoring of heart rate, SpO2 levels, and stress indicators to predict fall risk and detect medical emergencies.</p>
+                    <ul class="tech-features">
+                        <li>Heart rate variability analysis</li>
+                        <li>Blood oxygen saturation tracking</li>
+                        <li>Stress level assessment</li>
+                        <li>Pre-fall risk prediction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>Interactive System Demo</h2>
+            <p class="section-subtitle">Experience our multi-modal fall detection system in action</p>
+            
+            <div class="demo-container">
+                <div class="demo-controls">
+                    <div class="control-panel">
+                        <h3>System Controls</h3>
+                        <div class="control-group">
+                            <label>Camera Detection</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="camera-toggle" checked>
+                                <label for="camera-toggle"></label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Motion Sensors</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="motion-toggle" checked>
+                                <label for="motion-toggle"></label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Health Monitoring</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="health-toggle" checked>
+                                <label for="health-toggle"></label>
+                            </div>
+                        </div>
+                        <button class="simulate-btn" onclick="simulateFall()">Simulate Fall Event</button>
+                    </div>
+                </div>
+
+                <div class="demo-display">
+                    <div class="sensor-panels">
+                        <div class="panel camera-panel">
+                            <h4><i class="fas fa-video"></i> Camera Feed</h4>
+                            <div class="camera-feed">
+                                <div class="person-silhouette" id="person"></div>
+                                <div class="detection-overlay">
+                                    <div class="skeleton-points"></div>
+                                </div>
+                                <div class="status-indicator camera-status">Normal Activity</div>
+                            </div>
+                        </div>
+
+                        <div class="panel motion-panel">
+                            <h4><i class="fas fa-running"></i> Motion Data</h4>
+                            <div class="motion-charts">
+                                <div class="chart-container">
+                                    <label>Acceleration (m/s²)</label>
+                                    <canvas id="accelerationChart" width="300" height="100"></canvas>
+                                </div>
+                                <div class="motion-values">
+                                    <div class="value-display">
+                                        <span>X-Axis:</span>
+                                        <span id="accel-x">0.2</span>
+                                    </div>
+                                    <div class="value-display">
+                                        <span>Y-Axis:</span>
+                                        <span id="accel-y">9.8</span>
+                                    </div>
+                                    <div class="value-display">
+                                        <span>Z-Axis:</span>
+                                        <span id="accel-z">0.1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel health-panel">
+                            <h4><i class="fas fa-heartbeat"></i> Vital Signs</h4>
+                            <div class="vitals-display">
+                                <div class="vital-metric">
+                                    <div class="metric-icon">❤️</div>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Heart Rate</span>
+                                        <span class="metric-value" id="heart-rate">72 BPM</span>
+                                    </div>
+                                </div>
+                                <div class="vital-metric">
+                                    <div class="metric-icon">🩸</div>
+                                    <div class="metric-info">
+                                        <span class="metric-label">SpO2</span>
+                                        <span class="metric-value" id="spo2">98%</span>
+                                    </div>
+                                </div>
+                                <div class="vital-metric">
+                                    <div class="metric-icon">📊</div>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Stress Level</span>
+                                        <span class="metric-value" id="stress">Low</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-system">
+                        <div class="alert-panel" id="alert-panel">
+                            <div class="alert-header">
+                                <i class="fas fa-shield-check"></i>
+                                <span>System Status: Normal</span>
+                            </div>
+                            <div class="confidence-meter">
+                                <label>Detection Confidence</label>
+                                <div class="meter-bar">
+                                    <div class="meter-fill" id="confidence-fill"></div>
+                                </div>
+                                <span id="confidence-value">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Advanced Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Real-Time Processing</h3>
+                    <p>Sub-second detection and alert generation for immediate emergency response.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Privacy Protected</h3>
+                    <p>Edge computing ensures personal data never leaves the device, maintaining complete privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Integration</h3>
+                    <p>Seamless integration with smartphones and wearable devices for comprehensive monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Machine Learning</h3>
+                    <p>Continuously learning and adapting to individual movement patterns and behaviors.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Multi-Device Sync</h3>
+                    <p>Coordinated monitoring across multiple sensors and cameras for comprehensive coverage.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Predictive Analytics</h3>
+                    <p>Advanced algorithms predict fall risk based on movement patterns and health indicators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Learn more about implementing Fallguard Pro in your healthcare facility or home environment.</p>            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="user_name" id="name" placeholder="Name" required>
+                        <input type="email" name="user_email" id="Email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="organization" placeholder="Organization">
+                        <input type="tel" name="phone" placeholder="Phone">
+                    </div>
+                    <textarea name="message" id="Message" placeholder="Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary" onclick="email_submit(event)">Send Message</button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Fallguard Pro</span>
+                </div>
+                <p>&copy; 2025 Fallguard Pro. All rights reserved. Protecting lives through intelligent technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
