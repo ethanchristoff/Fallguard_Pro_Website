@@ -7,6 +7,12 @@ function scrollToSection(sectionId) {
 
 // Mobile navigation toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -675,19 +681,34 @@ function email_submit(event) {
     const organization = document.querySelector('input[name="organization"]')?.value || '';
     const phone = document.querySelector('input[name="phone"]')?.value || '';
 
-    // Validation
-    if (name == '' || email == ''){
-        alert("Ensure that you've entered both your name and Email address!");
+    // Enhanced validation
+    if (name.trim() === '' || email.trim() === ''){
+        showFormStatus('error', 'Please ensure you have entered both your name and email address!');
         return false;
     }
 
-    // Show loading state if button exists
-    const submitBtn = document.querySelector('.btn-primary, button[type="submit"]');
-    const originalText = submitBtn?.textContent || 'Send Message';
-    if (submitBtn) {
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showFormStatus('error', 'Please enter a valid email address!');
+        return false;
     }
+
+    if (message.trim() === '') {
+        showFormStatus('error', 'Please enter a message!');
+        return false;
+    }
+
+    // Show loading state
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const originalHTML = submitBtn?.innerHTML || '<i class="fas fa-paper-plane me-2"></i>Send Message';
+    if (submitBtn) {
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        submitBtn.disabled = true;
+        submitBtn.classList.add('btn-loading');
+    }
+
+    showFormStatus('loading', 'Sending your message...');
 
     const templateParams = {
         to_email: 'ethan.christoff@gmail.com',
@@ -700,7 +721,7 @@ function email_submit(event) {
 
     emailjs.send('service_rbgxt4h', 'template_99bnb6g', templateParams)
         .then(function(response) {
-            alert('Email sent successfully!');
+            showFormStatus('success', 'Message sent successfully! We will get back to you soon.');
             console.log('SUCCESS!', response.status, response.text);
             
             // Reset form if it exists
@@ -713,21 +734,40 @@ function email_submit(event) {
             // Reset button
             if (submitBtn) {
                 setTimeout(() => {
-                    submitBtn.textContent = originalText;
+                    submitBtn.innerHTML = originalHTML;
                     submitBtn.disabled = false;
+                    submitBtn.classList.remove('btn-loading');
                 }, 2000);
             }
         })
         .catch(function(error) {
-            alert('Failed to send email. Please try again.');
+            showFormStatus('error', 'Failed to send message. Please try again.');
             console.log('FAILED...', error);
             
             // Reset button
             if (submitBtn) {
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalHTML;
                 submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-loading');
             }
         });
 
     return false; 
+}
+
+// Enhanced form status display function
+function showFormStatus(type, message) {
+    const statusElement = document.getElementById('form-status');
+    if (statusElement) {
+        statusElement.className = `form-status ${type}`;
+        statusElement.textContent = message;
+        statusElement.style.display = 'block';
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                statusElement.style.display = 'none';
+            }, 5000);
+        }
+    }
 }

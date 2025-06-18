@@ -1657,3 +1657,250 @@ html {
     0% { left: -100%; }
     100% { left: 100%; }
 }
+
+/* ===== CLEAN BOOTSTRAP BUTTON THEMES ===== */
+
+/* Reset Bootstrap button defaults for custom styling */
+.custom-btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: translateZ(0) !important;
+    text-transform: none !important;
+}
+
+.custom-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease !important;
+    z-index: 1;
+}
+
+.custom-btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.custom-btn-primary:hover::before {
+    left: 100%;
+}
+
+.custom-btn-primary:active {
+    transform: translateY(0) !important;
+    transition: all 0.1s ease !important;
+}
+
+.custom-btn-primary:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    outline: none !important;
+}
+
+/* Clean secondary button */
+.custom-btn-secondary {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: none !important;
+}
+
+.custom-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15) !important;
+}
+
+.custom-btn-secondary:active {
+    transform: translateY(0) !important;
+    transition: all 0.1s ease !important;
+}
+
+.custom-btn-secondary:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25) !important;
+    outline: none !important;
+}
+
+/* Clean simulate button with danger theme */
+.custom-simulate-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: none !important;
+}
+
+.custom-simulate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease !important;
+    z-index: 1;
+}
+
+.custom-simulate-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.custom-simulate-btn:hover::before {
+    left: 100%;
+}
+
+.custom-simulate-btn:active {
+    transform: translateY(0) !important;
+    transition: all 0.1s ease !important;
+}
+
+.custom-simulate-btn:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important;
+    outline: none !important;
+}
+
+/* Enhanced form controls for Bootstrap */
+.form-control {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    color: white !important;
+    outline: none !important;
+}
+
+.form-control:valid {
+    border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.form-control:invalid:not(:placeholder-shown) {
+    border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Button icons positioning */
+.custom-btn-primary .fas,
+.custom-btn-secondary .fas,
+.custom-simulate-btn .fas {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive button adjustments */
+@media (max-width: 768px) {
+    .custom-btn-primary,
+    .custom-btn-secondary,
+    .custom-simulate-btn {
+        font-size: 0.9rem !important;
+        padding: 0.75rem 1.5rem !important;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Button loading state */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: btn-loading-spin 1s ease infinite;
+    z-index: 3;
+}
+
+@keyframes btn-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form status messages */
+.form-status {
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.form-status.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    color: #22c55e;
+    display: block;
+}
+
+.form-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    display: block;
+}
+
+.form-status.loading {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+    display: block;
+}
+
+/* ===== END CLEAN BOOTSTRAP BUTTON THEMES ===== */
